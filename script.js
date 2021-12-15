@@ -12,6 +12,10 @@ let highScore = 0;
 const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
+//function for displaying score
+const displayScore = function (score) {
+  document.querySelector('.score').textContent = score;
+};
 console.log(`secretNumber  IS ${number}`);
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -25,7 +29,8 @@ document.querySelector('.check').addEventListener('click', function () {
       highScore = score;
       document.querySelector('.highscore').textContent = highScore;
     }
-    document.querySelector('.score').textContent = score;
+    displayScore(score);
+    // document.querySelector('.score').textContent = score;
     displayMessage('Hurray!! 🎉🎉correct Answer');
     // document.querySelector('.message').textContent =
     // 'Hurray!! 🎉🎉correct Answer';
@@ -34,14 +39,19 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess != number) {
     if (score > 1) {
       score--;
-      document.querySelector('.score').textContent = score;
-      document.querySelector('.message').textContent =
-        guess > number ? 'Too High...🤨🤨🤨🤨' : 'Too Low....😒😒😒';
+      displayMessage(
+        guess > number ? 'Too High...🤨🤨🤨🤨' : 'Too Low....😒😒😒'
+      );
+      displayScore(score);
+      // document.querySelector('.score').textContent = score;
+      // document.querySelector('.message').textContent =
+      //   guess > number ? 'Too High...🤨🤨🤨🤨' : 'Too Low....😒😒😒';
     } else {
       displayMessage('YOU LOST😭😭');
       // document.querySelector('.message').textContent = 'YOU LOST😭😭';
       document.querySelector('body').style.backgroundColor = '#D22B2B';
-      document.querySelector('.score').textContent = 0;
+      displayScore(0);
+      // document.querySelector('.score').textContent = 0;
     }
   }
   //   } else if (guess > number) {
@@ -77,8 +87,9 @@ document.querySelector('.again').addEventListener('click', function () {
   displayMessage('start guessing...');
   // document.querySelector('.message').textContent = 'start guessing...';
   document.querySelector('.guess').value = '';
-  document.querySelector('.score').textContent = 20;
+  displayScore(20);
+  // document.querySelector('.score').textContent = 20;
   document.querySelector('.number').textContent = '?';
   document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.highscore').textContent = highScore;
+  // document.querySelector('.highscore').textContent = highScore;
 });
