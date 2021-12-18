@@ -47,3 +47,34 @@ form button {
   margin: 20px auto 0;
   border-radius: 30px;
 }
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 20vh;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.hidden {
+  display: none;
+}
+.modal p {
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}

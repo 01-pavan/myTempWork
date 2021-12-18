@@ -1,3 +1,5 @@
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.close-modal');
 function sendEmail() {
   Email.send({
     Host: 'smtp.elasticemail.com',
@@ -7,5 +9,15 @@ function sendEmail() {
     From: document.getElementById('email').value,
     Subject: 'New Contact form enquiry',
     Body: 'And this is the body',
-  }).then(message => alert(message));
+  }).then(message => show(message));
 }
+
+function show(msg) {
+  modal.classList.remove('hidden');
+  document.getElementById('message').innerText = msg;
+}
+
+const hideModal = function () {
+  modal.classList.add('hidden');
+};
+closeModal.addEventListener('click', hideModal);
